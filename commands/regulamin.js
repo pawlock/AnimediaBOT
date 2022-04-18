@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageEmbed, MessageButton } = require('discord.js');
 const {admin_id} = require('../config.json');
+const { regulamin_opis } = require('../dane.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -10,7 +11,7 @@ module.exports = {
   permissions: [
     {id: admin_id , type: "ROLE", permission: true}
   ],
-  async execute(interaction, regulamin) {
+  async execute(interaction) {
     const akceptuj = new MessageActionRow()
 			.addComponents(
 				new MessageButton()
@@ -21,7 +22,7 @@ module.exports = {
     const embed = new MessageEmbed()
 			.setColor('#DC143C')
 			.setTitle('Regulamin')
-			.setDescription(regulamin);
+			.setDescription(regulamin_opis);
 
 		await interaction.reply({ embeds: [embed], components: [akceptuj] });
   }

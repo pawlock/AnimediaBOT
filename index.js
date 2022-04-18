@@ -2,7 +2,7 @@ const { Client, Intents,  MessageActionRow, MessageButton, MessageEmbed } = requ
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const fs = require('fs');
-const regulamin = "Postanowienia ogólne. \n1. Wchodząc na serwer discord, akceptujesz nasz regulamin. \n2. Regulamin może w każdej chwili ulec zmianie bez wcześniejszego informowania o tym. \n3. Jeśli nie rozumiesz któregoś z podpunktów regulaminu — skontaktuj się z administracją. \n4. Wszelkie błędy i niedociągnięcia związane z funkcjonowaniem serwera należy natychmiast zgłaszać administracji.\n5. Rzeczy nie uwzględnione w regulaminie podlegają rozstrzygnięciu przez administratora serwera.\n6. Każdy administrator ma obowiązek udzielić pomocy użytkownikowi, jeśli ten jej potrzebuje.\n7. Administrator powinien dawać dobry przykład użytkownikom.\n8. Nieznajomość regulaminu nie zwalnia użytkownika z jego przestrzegania.\n9. Zachowuj się jak człowiek.\n10. Administracja ma obowiązek podania powodu kary."
+const dane = require('./dane.json');
 
 const client = new Client({
   presence: {
@@ -36,19 +36,14 @@ for (const file of eventFiles) {
 const rest = new REST({ version: '9' }).setToken(process.env['token']);
 
 client.on("ready", async () => {
-  
-(async () => {
   const guilds = client.guilds.cache;
   for (const guild of guilds) {
-    
     try {
-      
 		  await rest.put(
   			Routes.applicationGuildCommands(client.user.id, guild[0]),
   			{ body: commands },
       );
       const restCommands = await guild[1].commands.fetch();
-      
       for (const command of restCommands) {
         const cmd = commands.filter(c => c.name === command[1].name) || [];
         if (cmd.length == 0) continue;
@@ -61,10 +56,9 @@ client.on("ready", async () => {
   		console.error(error);
       
   	}
-  }});
   
   console.log(client.user.username, client.user.id);
-});
+}});
 
 
 client.on('interactionCreate', async interaction => {
@@ -72,7 +66,7 @@ client.on('interactionCreate', async interaction => {
   const command = commands.filter(cmd => cmd.name === interaction.commandName) || [];
   if (command.length == 0) return;
   try {
-    await command[0].execute(interaction, regulamin);
+    await command[0].execute(interaction);
   } catch (error) {
     console.log(error);
   }

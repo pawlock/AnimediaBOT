@@ -8,9 +8,6 @@ module.exports = {
 		.setName('regulamin')
 		.setDescription('Wypisuje regulamin z przyciskiem')
     .setDefaultPermission(false),
-  permissions: [
-    {id: admin_id , type: "ROLE", permission: true}
-  ],
   async execute(interaction) {
     const akceptuj = new MessageActionRow()
 			.addComponents(

@@ -1,8 +1,8 @@
 const {weryfikacja_id} = require('../config.json');
 
 module.exports = {
-  event(client) {
-    client.on("interactionCreate", async interaction => {
+  execute(bot) {
+    bot.on("interactionCreate", async interaction => {
       if (!interaction.isButton()) return;
       const weryfikacja = await interaction.guild.roles.fetch(weryfikacja_id);
       const osoba = await interaction.guild.members.fetch(interaction.user.id);

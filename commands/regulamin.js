@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageEmbed, MessageButton } = require('discord.js');
-const {admin_id} = require('../config.json');
-const { regulamin_opis } = require('../dane.json');
+const { admin_id } = require('../assets/config.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -19,7 +18,7 @@ module.exports = {
     const embed = new MessageEmbed()
 			.setColor('#DC143C')
 			.setTitle('Regulamin')
-			.setDescription(regulamin_opis);
+			.setDescription('regulamin_opis');
 
 		await interaction.reply({ embeds: [embed], components: [akceptuj] });
   }

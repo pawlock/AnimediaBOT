@@ -1,4 +1,4 @@
-const {weryfikacja_id} = require('../config.json');
+const {weryfikacja_id} = require('../assets/config.json');
 
 module.exports = {
   execute(bot) {

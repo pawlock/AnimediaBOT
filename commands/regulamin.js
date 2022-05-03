@@ -11,9 +11,13 @@ module.exports = {
     const akceptuj = new MessageActionRow()
 			.addComponents(
 				new MessageButton()
-					.setCustomId('akceptuj')
-					.setLabel('Akceptuj')
+					.setCustomId('regulamin-tak')
+					.setLabel('Akceptuję')
 					.setStyle('SUCCESS'),
+        new MessageButton()
+					.setCustomId('regulamin-nie')
+					.setLabel('Nie akceptuję')
+					.setStyle('DANGER'),
 			);
     const embed = new MessageEmbed()
 			.setColor('#DC143C')

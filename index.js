@@ -32,8 +32,12 @@ for (const eventFile of eventDir) {
 }
 
 bot.on('interactionCreate', interaction =>{
+  if(interaction.isButton()){
+    const button = require(`./buttons/${interaction.customId}`)
+    button.execute(interaction)
+  } else {
   const command = require(`./commands/${interaction.commandName}`);
-  command.execute(interaction);
+  command.execute(interaction);}
 })
 
 

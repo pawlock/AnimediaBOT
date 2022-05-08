@@ -1,5 +1,6 @@
 //AnimediaBOT 960662384131846174
 const discord = require('discord.js');
+const discordModals = require('discord-modals');
 const fs = require('fs');
 const bot = new discord.Client({
   presence: {
@@ -23,6 +24,8 @@ const bot = new discord.Client({
     'GUILD_MEMBER'
   ]
 });
+discordModals(bot);
+
 
 const eventDir = fs.readdirSync('./events').filter(eventFile => eventFile.endsWith('.js'));
 
@@ -38,6 +41,11 @@ bot.on('interactionCreate', interaction =>{
   } else {
   const command = require(`./commands/${interaction.commandName}`);
   command.execute(interaction);}
+})
+
+bot.on('modalSubmit', modal =>{
+  const modals = require(`./modals/${modal.customId}`);
+  modals.execute(modal, bot);
 })
 
 

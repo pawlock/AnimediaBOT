@@ -6,6 +6,7 @@ module.exports = {
               .setDescription('Testowa komenda')
               .setDefaultPermission(false),
   async execute(interaction) {
-    await interaction.reply({content: 'Pong!', ephemeral: true})
+    await interaction.deferReply({ephemeral: true});
+    await interaction.editReply('Pong!');
   }
 }

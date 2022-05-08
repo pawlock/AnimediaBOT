@@ -1,6 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageEmbed, MessageButton } = require('discord.js');
-const { admin_id } = require('../assets/config.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()

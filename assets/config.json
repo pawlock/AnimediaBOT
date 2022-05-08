@@ -1,5 +1,15 @@
 {
   "id_ranga_weryfikacja" : "971188283004583977",
   "id_kanal_witamy" : "970335062715428894",
-  "id_kanal_żegnamy" : "970335062715428894"
+  "id_kanal_żegnamy" : "970335062715428894",
+  "id_kanal_regulamin" : "970335062715428894",
+  "id_kanal_rangi" : "970335062715428894",
+  "id_kanal_skargi" : "970335062715428894",
+  "id_kanal_s_admin" : "970335062715428894",
+  "id_kanal_s_animedia" : "970335062715428894",
+  "id_kanal_rekrutacja" : "970335062715428894",
+  "id_kanal_r_admin" : "970335062715428894",
+  "id_kanal_r_animedia" : "970335062715428894",
+  "id_kanal_logi" : "970335062715428894",
+  "id_kanal_admin" : "970335062715428894"
 }

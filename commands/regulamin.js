@@ -4,10 +4,10 @@ const { MessageActionRow, MessageEmbed, MessageButton } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('regulamin')
-		.setDescription('Wypisuje regulamin z przyciskiem')
+		.setDescription('Umożliwia edycję Regulaminu')
     .setDefaultPermission(false),
   async execute(interaction) {
-    const akceptuj = new MessageActionRow()
+    const buttons = new MessageActionRow()
 			.addComponents(
 				new MessageButton()
 					.setCustomId('regulamin-tak')
@@ -23,6 +23,6 @@ module.exports = {
 			.setTitle('Regulamin')
 			.setDescription('regulamin_opis');
 
-		await interaction.reply({ embeds: [embed], components: [akceptuj] });
+		await interaction.reply({ embeds: [embed], components: [buttons] });
   }
 };

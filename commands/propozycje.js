@@ -3,8 +3,8 @@ const { MessageActionRow, MessageEmbed, MessageButton } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
-              .setName('skargi')
-              .setDescription('Wysyła formularz skarg na wybrany kanał')
+              .setName('propozycje')
+              .setDescription('Wysyła formularz propozycji na wybrany kanał')
               .setDefaultPermission(false)
               .addChannelOption(option => option.setName('channel').setDescription('Wybierz kanał').setRequired(true)),
   async execute(interaction) {
@@ -12,16 +12,16 @@ module.exports = {
     const buttons = new MessageActionRow()
 			.addComponents(
 				new MessageButton()
-					.setCustomId('skargi-admin')
+					.setCustomId('propozycje-admin')
 					.setLabel('Do Administracji')
 					.setStyle('PRIMARY'),
         new MessageButton()
-					.setCustomId('skargi-animedia')
+					.setCustomId('propozycje-animedia')
 					.setLabel('Do ANIMEDII')
 					.setStyle('DANGER'),
 			);
-    await option.send({content: 'Jeśli masz jakieś skargi wybierz odpowiedni przycisk i napisz skargę:',components: [buttons] })
+    await option.send({content: 'Jeśli masz jakieś propozycje wybierz odpowiedni przycisk i napisz nam ją:',components: [buttons] })
     await interaction.deferReply({ephemeral: true});
-    await interaction.editReply(`Wysłano formularz skarg na kanał ${option}`);
+    await interaction.editReply(`Wysłano formularz porpozycji na kanał ${option}`);
   }
 }

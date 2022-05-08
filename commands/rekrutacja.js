@@ -3,8 +3,8 @@ const { MessageActionRow, MessageEmbed, MessageButton } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
-              .setName('skargi')
-              .setDescription('Wysyła formularz skarg na wybrany kanał')
+              .setName('rekrutacja')
+              .setDescription('Wysyła formularz rekrutacji na wybrany kanał')
               .setDefaultPermission(false)
               .addChannelOption(option => option.setName('channel').setDescription('Wybierz kanał').setRequired(true)),
   async execute(interaction) {
@@ -12,16 +12,16 @@ module.exports = {
     const buttons = new MessageActionRow()
 			.addComponents(
 				new MessageButton()
-					.setCustomId('skargi-admin')
-					.setLabel('Do Administracji')
+					.setCustomId('rekrutacja-admin')
+					.setLabel('Pomoc przy Discordzie')
 					.setStyle('PRIMARY'),
         new MessageButton()
-					.setCustomId('skargi-animedia')
-					.setLabel('Do ANIMEDII')
+					.setCustomId('rekrutacja-animedia')
+					.setLabel('Pomoc przy Kanale YT')
 					.setStyle('DANGER'),
 			);
-    await option.send({content: 'Jeśli masz jakieś skargi wybierz odpowiedni przycisk i napisz skargę:',components: [buttons] })
+    await option.send({content: 'Jeśli chcesz pomóc przy projekcie ANIMEDII kliknij odpowiedni przycisk',components: [buttons] })
     await interaction.deferReply({ephemeral: true});
-    await interaction.editReply(`Wysłano formularz skarg na kanał ${option}`);
+    await interaction.editReply(`Wysłano formularz rekrutacji na kanał ${option}`);
   }
 }

@@ -1,11 +1,11 @@
 const { Modal, TextInputComponent, showModal } = require('discord-modals');
 
 const modal = new Modal()
-.setCustomId('skargi-animedia')
-.setTitle('Formularz skargi do ANIMEDII')
+.setCustomId('rekrutacja-admin')
+.setTitle('Formularz rekrutacji do Discorda')
 .addComponents(
   new TextInputComponent()
-  .setCustomId('skargi-title')
+  .setCustomId('rekrutacja-title')
   .setLabel('TYTUŁ')
   .setStyle('SHORT')
   .setMinLength(5)
@@ -13,12 +13,12 @@ const modal = new Modal()
   .setPlaceholder('Musisz wpisać tytuł')
   .setRequired(true),
   new TextInputComponent()
-  .setCustomId('skargi-text')
+  .setCustomId('rekrutacja-text')
   .setLabel('TREŚĆ')
   .setStyle('LONG')
   .setMinLength(5)
   .setMaxLength(200)
-  .setPlaceholder('Musisz wpisać treść skargi')
+  .setPlaceholder('Dlaczego powinniśmy wziąć akurat CIEBIE?')
   .setRequired(true)
 );
 

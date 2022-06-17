@@ -53,7 +53,7 @@ module.exports = {
       }
     }
     if(i==0){
-      await option.send({content: reg.content, components: [buttons]});
+      await channel_old.send({content: reg.content, components: [buttons]});
     }
 
     await interaction.deferReply({ephemeral: true});
